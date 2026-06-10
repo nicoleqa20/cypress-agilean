@@ -30,9 +30,7 @@ npx cypress run
 ## Cenários automatizados
 
 | Arquivo | CTs cobertos | Descrição |
-
 |---|---|---|
-
 | 01_cadastro_atividade.cy.js | CT01, CT02 | Cadastro de atividade com validação de campos obrigatórios |
 | 02_cadastro_responsavel.cy.js | CT05, CT06, CT08 | Cadastro de responsável com validações |
 | 03_menu_acoes.cy.js | CT10, CT11, CT12 | Editar, duplicar e excluir atividades |
