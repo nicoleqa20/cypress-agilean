@@ -33,16 +33,16 @@ it('deve rejeitar uma atividade pelo dropdown da tabela', () => {
  * o status é atualizado corretamente após confirmar o motivo
  */
 it('deve rejeitar uma atividade pelo modal de edição', () => {
-  // Aguarda a tabela ter pelo menos uma atividade
   cy.get('[data-cy^="atividade-"][data-cy$="-btn-menu"]').first().should('be.visible');
   cy.get('[data-cy^="atividade-"][data-cy$="-btn-menu"]').first().click();
   cy.get('[data-cy^="atividade-"][data-cy$="-btn-editar"]').first().should('be.visible').click();
-  cy.get('[data-cy="modal-atividade-status"]')
-  .select('Rejeitada')
-  .trigger('change');
+  cy.get('[data-cy="modal-atividade-status"]').select('Rejeitada');
+
+  // Modal de rejeição aparece automaticamente após selecionar Rejeitada
   cy.get('[data-cy="modal-rejeicao"]').should('be.visible');
   cy.get('[data-cy="modal-rejeicao-motivo"]').type('Motivo de rejeição teste');
   cy.get('[data-cy="modal-rejeicao-btn-confirmar"]').click();
+
   cy.get('[data-cy="modal-atividade-prazo"]').type('2026-12-31');
   cy.get('[data-cy="modal-atividade-btn-salvar"]').click();
   cy.get('[data-cy="badge-status-rejeitada"]').should('be.visible');
